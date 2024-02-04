@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../models/people.dart';
 
@@ -26,7 +27,7 @@ class PeopleItem extends StatelessWidget {
         ],
       ),
       child: Container(
-        margin: const EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.symmetric(horizontal: 10),
         height: 75,
         decoration: BoxDecoration(
@@ -39,7 +40,7 @@ class PeopleItem extends StatelessWidget {
               backgroundImage: NetworkImage(people.avatarUrl),
               radius: 28,
             ),
-            const SizedBox(width: 20),
+            const Gap(20),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -52,18 +53,17 @@ class PeopleItem extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 1),
+                  const Gap(1),
                   Row(
                     children: [
                       if (people.unreadCount == -1) renderSentIcon(),
-                      Text(
-                        getLimitedText(
-                          text: people.lastMessage,
-                          maxLength: 28,
+                      Expanded(
+                        child: Text(
+                          people.lastMessage,
+                          style: const TextStyle(fontSize: 13),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        style: const TextStyle(fontSize: 13),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
@@ -109,13 +109,5 @@ class PeopleItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String getLimitedText({required String text, required int maxLength}) {
-    if (text.length <= maxLength) {
-      return text;
-    } else {
-      return '${text.substring(0, maxLength)}...';
-    }
   }
 }

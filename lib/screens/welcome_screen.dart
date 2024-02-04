@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../widgets/auth_button.dart';
 
@@ -49,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 10),
+                    Gap(10),
                     Text(
                       "Connect people arround the world for free",
                       style: TextStyle(
@@ -58,9 +59,9 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 30),
+                    Gap(30),
                     AuthButton(title: "Register"),
-                    SizedBox(height: 10),
+                    Gap(10),
                     AuthButton(title: "Login"),
                   ],
                 ),

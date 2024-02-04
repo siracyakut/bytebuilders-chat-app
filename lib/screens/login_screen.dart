@@ -28,7 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
     Storage storage = Storage();
     API api = API();
-    Dialogs dialogs = Dialogs(context: context);
 
     var data = await api.loginUserService(
       username: usernameController.text.trim(),
@@ -36,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     if (data is DioException) {
-      dialogs.errorDialog(content: data.response?.data["data"]);
+      errorDialog(context: context, content: data.response?.data["data"]);
     } else {
       await storage.saveUser(
         username: data["data"]["email"],
@@ -133,21 +132,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           const Gap(30),
                           ElevatedButton(
                             onPressed: () {
-                              Dialogs dialogs = Dialogs(context: context);
                               if (usernameController.text.trim().isEmpty ||
                                   passwordController.text.trim().isEmpty) {
-                                dialogs.errorDialog(
+                                errorDialog(
+                                  context: context,
                                   content: "Please fill in the blanks.",
                                 );
                               } else {
                                 loginUser();
                               }
                             },
-                            // onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                            //   context,
-                            //   "/chat",
-                            //   (route) => false,
-                            // ),
                             child: const Text("Login"),
                           ),
                         ],

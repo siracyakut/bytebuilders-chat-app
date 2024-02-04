@@ -29,7 +29,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     Storage storage = Storage();
     API api = API();
-    Dialogs dialogs = Dialogs(context: context);
 
     var data = await api.registerUserService(
       username: usernameController.text.trim(),
@@ -37,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
 
     if (data is DioException) {
-      dialogs.errorDialog(content: data.response?.data["data"]);
+      errorDialog(context: context, content: data.response?.data["data"]);
     } else {
       await storage.saveUser(
         username: data["data"]["email"],
@@ -142,10 +141,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           const Gap(15),
                           ElevatedButton(
                             onPressed: () {
-                              Dialogs dialogs = Dialogs(context: context);
                               if (passwordController.text !=
                                   passwordConfirmController.text) {
-                                dialogs.errorDialog(
+                                errorDialog(
+                                  context: context,
                                   content: "Passwords not match!",
                                 );
                               } else if (usernameController.text
@@ -155,17 +154,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   passwordConfirmController.text
                                       .trim()
                                       .isEmpty) {
-                                dialogs.errorDialog(
+                                errorDialog(
+                                  context: context,
                                   content: "Please fill in the blanks.",
                                 );
                               } else {
-                                if (!loading) {
-                                  registerUser();
-                                } else {
-                                  dialogs.errorDialog(
-                                    content: "A request is already in process.",
-                                  );
-                                }
+                                registerUser();
                               }
                             },
                             child: const Text("Register"),

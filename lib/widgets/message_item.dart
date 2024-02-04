@@ -23,7 +23,7 @@ class MessageItem extends StatelessWidget {
           children: [
             Container(
               width: 230,
-              height: 60,
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
               decoration: BoxDecoration(
                 color:
                     isMe ? Colors.white : const Color.fromRGBO(112, 62, 254, 1),
@@ -49,7 +49,7 @@ class MessageItem extends StatelessWidget {
                     color: isMe ? Colors.black : Colors.white,
                   ),
                   textAlign: TextAlign.start,
-                  maxLines: 2,
+                  maxLines: 10,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

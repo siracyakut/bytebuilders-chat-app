@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:gap/gap.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../core/storage.dart';
 import '../core/variables.dart';
@@ -149,15 +150,28 @@ class _ChatScreenState extends State<ChatScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Icon(
-            Icons.language,
-            size: 30,
-            color: Color.fromARGB(255, 128, 128, 128),
+          InkWell(
+            onTap: () async {
+              Uri url = Uri.parse(
+                  "https://github.com/siracyakut/bytebuilders-chat-app/");
+              await launchUrl(url);
+            },
+            child: const Icon(
+              Icons.language,
+              size: 30,
+              color: Color.fromARGB(255, 128, 128, 128),
+            ),
           ),
-          const Icon(
-            Icons.forum,
-            size: 30,
-            color: Color.fromARGB(255, 128, 128, 128),
+          InkWell(
+            onTap: () async {
+              Uri url = Uri.parse("sms:+905538543421?body=Hello+ByteBuilders!");
+              await launchUrl(url);
+            },
+            child: const Icon(
+              Icons.forum,
+              size: 30,
+              color: Color.fromARGB(255, 128, 128, 128),
+            ),
           ),
           Container(
             width: 65,
@@ -185,10 +199,16 @@ class _ChatScreenState extends State<ChatScreen> {
               color: Colors.white,
             ),
           ),
-          const Icon(
-            Icons.call,
-            size: 30,
-            color: Color.fromARGB(255, 128, 128, 128),
+          InkWell(
+            onTap: () async {
+              Uri url = Uri.parse("tel:+905538543421");
+              await launchUrl(url);
+            },
+            child: const Icon(
+              Icons.call,
+              size: 30,
+              color: Color.fromARGB(255, 128, 128, 128),
+            ),
           ),
           InkWell(
             onTap: () => Navigator.pushNamed(context, "/profile"),

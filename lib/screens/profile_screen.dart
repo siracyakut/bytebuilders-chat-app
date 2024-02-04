@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
 import '../core/storage.dart';
@@ -17,8 +18,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Map<String, String> user = {};
 
   logout() async {
-    Dialogs dialog = Dialogs(context: context);
-    dialog.questionDialog(
+    questionDialog(
+      context: context,
       title: "Logout",
       content: "Are you sure want to logout from your account?",
       func: () async {
@@ -27,6 +28,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         Navigator.of(context).pushNamedAndRemoveUntil(
           "/welcome",
           (route) => false,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("You are successfully logged out."),
+            backgroundColor: Colors.green,
+          ),
         );
       },
     );
@@ -89,11 +96,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Color.fromARGB(255, 241, 241, 241),
                     shape: BoxShape.circle,
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(3.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(3.0),
                     child: CircleAvatar(
-                      backgroundImage: AssetImage("assets/images/sirac.jpg"),
                       radius: 64,
+                      backgroundColor: Colors.black,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: SvgPicture.asset(
+                          "assets/images/profile-avatar.svg",
+                          colorFilter: const ColorFilter.mode(
+                            Colors.white,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
