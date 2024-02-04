@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../core/storage.dart';
+import '../widgets/loading_indicator.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
@@ -35,10 +36,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
+    return const LoadingIndicator();
   }
 }

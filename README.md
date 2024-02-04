@@ -38,6 +38,27 @@ The application was made using basic flutter features and packages. It includes 
 | :------------: | :------------: | :------------: | :------------: |
 | [Keyvan Arasteh (@keyvanarasteh)](https://github.com/keyvanarasteh "Keyvan Arasteh (@keyvanarasteh)") | Hüseyin Siraç Yakut - 222016751 | Bayram Talha Kaya - 222016765 | İsmail Can Kahraman - 222016731 |
 
+### Project Screens
+
+<p align="center">
+  <img src="https://i.hizliresim.com/je33vch.png" alt="welcome screen"/>
+  <img src="https://i.hizliresim.com/qi6ko2f.png" alt="register screen"/>
+</p>
+
+<p align="center">
+  <img src="https://i.hizliresim.com/lx229hn.png" alt="login screen"/>
+  <img src="https://i.hizliresim.com/kgnmsvx.png" alt="chat screen"/>
+</p>
+
+<p align="center">
+  <img src="https://i.hizliresim.com/ohkpyje.png" alt="message screen"/>
+  <img src="https://i.hizliresim.com/to8oeuv.png" alt="profile screen"/>
+</p>
+
+<p align="center">
+  <img src="https://i.hizliresim.com/a21dnj2.png" alt="dialog box"/>
+</p>
+
 ### Used Technologies & Packages
 
 - [Dart](https://dart.dev/ "Dart") - Dart is an approachable, portable, and productive language for high-quality apps on any platform.
