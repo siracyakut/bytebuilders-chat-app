@@ -32,12 +32,6 @@ The application was made using basic flutter features and packages. It includes 
 - Loading indicators for high UX
 - SMS, Phone Call and Web Redirect buttons
 
-### Project Team
-
-| Supervisor | Member 1 | Member 2 | Member 3 |
-| :------------: | :------------: | :------------: | :------------: |
-| [Keyvan Arasteh (@keyvanarasteh)](https://github.com/keyvanarasteh "Keyvan Arasteh (@keyvanarasteh)") | Hüseyin Siraç Yakut - 222016751 | Bayram Talha Kaya - 222016765 | İsmail Can Kahraman - 222016731 |
-
 ### Project Screens
 
 <p align="center">
