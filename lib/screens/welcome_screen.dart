@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
               Expanded(child: Container()),
               Container(
                 width: double.infinity,
-                height: 330,
+                height: 430,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 50,
                   vertical: 35,
